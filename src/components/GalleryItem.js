@@ -3,41 +3,88 @@ import { useState } from 'react'
 function GalleryItem(props) {
     let [view, setView] = useState(false)
 
-    const simpleStyle = {
-        'width': '25vw',
-        'height': '20vh',
-        'border': '1px solid black',
-        'margin': '2px'
+    function HandleClick() {
+        window.scroll(0, 0);
     }
+
+    const dateOptions = {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        timeZone: "UTC",
+      };
     
-    const detailStyle = {
-        'width': '80vw',
-        'height': '20vh',
-        'border': '1px solid black',
-        'margin': '2px',
-        'backgroundImage': `url(${props.item.artworkUrl100})`,
-        'backgroundRepeat': 'no-repeat',
-        'backgroundSize': 'cover',
-        'color': 'yellow'
-    }
     
     const simpleView = () => {
         return (
-            <div style={simpleStyle}>
-                <h3>{props.item.trackName}</h3>
-                <h4>{props.item.collectionName}</h4>
-            </div>
+            <ul className="list-unstyled d-flex flex-wrap justify-content-center align-items-stretch">
+                <div className="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-1">
+                    <div className="card bg-dark text-white border-secondary d-flex flex-column h-100"> 
+                        <div className="card-body text-center">
+                            <h5 className="card-title text-white">{props.item.trackName}</h5>
+                            <p className="card-text text-secondary">
+                                {props.item.artistName}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </ul>
         )
     }
 
     const detailView = () => {
         return (
-            <div style={detailStyle}>
-                <h2>{props.item.trackName}</h2>
+            <ul className="list-unstyled d-flex flex-wrap justify-content-center align-items-stretch">
+             
+                <div className="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-1">
+                    <div className="card bg-dark text-white border-secondary d-flex flex-column h-100">
+                        <img
+                        className="card-img-top flex-grow-1"
+                        src={props.item.artworkUrl100}
+                        alt={props.item.trackName}
+                        />
+                        <div className="card-body text-center">
+                            <h5 className="card-title text-white">{props.item.trackName}</h5>
+                            <h6 className="card-title text-white">{props.item.artistName}</h6>
+{/*                             <p className="card-text text-secondary">
+                                {new Date(props.item.releaseDate).toLocaleDateString(
+                                    "en-US",
+                                    dateOptions
+                                )}
+                            </p> */}
+                        
+                            <button
+                            className="btn btn-outline-light mt-2"
+                            onClick={HandleClick}
+                            >
+                            View More
+                            </button>
+                        
+                        </div>
+                    </div>
+                </div>
+                
+            </ul>
+            /* <ul className="list-unstyled d-flex flex-wrap justify-content-center align-items-stretch">
+                <div className="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-1">{props.item.trackName}
+                    <div className="card bg-dark text-white border-secondary d-flex flex-column h-100">
+                        <img
+                            className="card-img-top flex-grow-1"
+                            src={props.item.artworkUrl100}
+                            alt={props.item.trackName}
+                        />
+                        <div className="card-body text-center">
+                            <h5 className="card-title text-white">{props.item.trackName}</h5>
+                            <p className="card-text text-secondary">
+                                {props.item.releaseDate}
+                            </p>
+                        </div>
+                    </div>
+                </div>
                 <h3>{props.item.collectionName}</h3>
                 <h4>{props.item.primaryGenreName}</h4>
                 <h4>{props.item.releaseDate}</h4>
-            </div>
+            </ul> */
         )
     }
 

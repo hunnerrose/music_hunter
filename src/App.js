@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Gallery from './components/Gallery'
 import SearchBar from './components/SearchBar'
+import "./index.css"
 
 
 const App = () => {
@@ -32,7 +33,7 @@ const App = () => {
   }
 
   return (
-      <div>
+      <div className="bg-violet-500">
           <SearchBar handleSearch={handleSearch} />
           {message}
           <Gallery data={data} />
