@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+// Having trouble getting tailwind cards to work; will need to continue troubleshooting next time
 function GalleryItem(props) {
     let [view, setView] = useState(false)
 
