@@ -34,10 +34,10 @@ const App = () => {
   }
 
   return (
-      <div className="bg-violet-500">
-          <SearchBar handleSearch={handleSearch} />
-          {message}
-          <Gallery data={data} />
+      <div className="flex relative bg-fuchsia-950">
+          <SearchBar handleSearch={handleSearch} message={message} className="flex flex: 1 1 30% fixed"/>
+          {/* <div className="ml-5 mb-5">{message}</div> */}
+          <Gallery data={data} className="flex flex-grow flex: 1 1 70% absolute "/>
       </div>
   )
 }

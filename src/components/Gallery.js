@@ -9,7 +9,7 @@ function Gallery(props){
     })
 
     return (
-        <div className="ml-3">
+        <div className="ml-3 mt-5 ">
         {display}
         </div>
     )
