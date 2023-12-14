@@ -19,12 +19,19 @@ function GalleryItem(props) {
     
     const simpleView = () => {
         return (
-            <ul className="bg-gray-600 mb-8 flex justify-center items-center overflow-hidden h-[50px] outline outline-offset-2 outline-2 hover:outline-pink-500 drop-shadow-md mx-3 rounded flex-1 w-64 flex-wrap">
+            <ul className="grid bg-gray-600 mb-8 flex justify-center items-center overflow-hidden h-[50px] hover:h-[350px] outline outline-offset-2 outline-2 hover:outline-fuchsia-600 drop-shadow-md mx-3 rounded flex-1 w-64 flex-wrap">
                 <div className="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-1">
-                    <div className="bg-dark text-white border-secondary d-flex flex-column h-100"> 
-                        <div className="text-center">
+                    <div className="bg-dark text-white border-secondary d-flex flex-column h-100 group"> 
+                        <div className="text-center group">
+                        <div className="bg-dark text-white border-secondary d-flex flex-column h-100 w-50 hidden group-hover:block">
+                            <img
+                                className="object-scale-down m-auto"
+                                src={props.item.artworkUrl100}
+                                alt={props.item.trackName}
+                            />
+                        </div>
                             <h5 className="text-white">{props.item.trackName}</h5>
-                            <p className="text-secondary font-mono">
+                            <p className="text-secondary font-system-ui">
                                 {props.item.artistName}
                             </p>
                         </div>
@@ -36,17 +43,17 @@ function GalleryItem(props) {
 
     const detailView = () => {
         return (
-            <ul className="bg-gray-600 mb-8 flex justify-center items-center overflow-hidden h-[350px] outline outline-offset-2 outline-2 hover:outline-pink-500 drop-shadow-md mx-3 rounded">
+            <ul className="bg-gray-600 grid  mb-8 flex justify-center items-center overflow-hidden h-[350px] outline outline-offset-2 outline-2 hover:outline-fuchsia-600 drop-shadow-md mx-3 rounded ">
              
                 <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                    <div className="bg-dark text-white border-secondary d-flex flex-column h-100 w-50">
+                    <div className="bg-dark text-white border-secondary d-flex flex-column h-100 w-50 ">
                         <img
                         className="object-scale-down m-auto"
                         src={props.item.artworkUrl100}
                         alt={props.item.trackName}
                         />
-                        <div className="text-center overflow-wrap:anywhere ">
-                            <h5 className="text-2xl font-bold tracking-tight text-gray-900 mb-2 break-words min-w-0">{props.item.trackName}</h5>
+                        <div className="text-center overflow-wrap:anywhere object-contain ">
+                            <h5 className="text-2xl font-bold tracking-tight text-gray-900 mb-2 break-words min-w-0 ">{props.item.trackName}</h5>
                             <h6 className="text-white">{props.item.artistName}</h6>
 {/*                             <p className="card-text text-secondary">
                                 {new Date(props.item.releaseDate).toLocaleDateString(
@@ -56,7 +63,7 @@ function GalleryItem(props) {
                             </p> */}
                         
                             <button
-                            className="btn btn-outline-light mt-2 font-mono"
+                            className="btn btn-outline-light mt-2 font-system-ui"
                             onClick={HandleClick}
                             >
                             View More

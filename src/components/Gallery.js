@@ -9,7 +9,7 @@ function Gallery(props){
     })
 
     return (
-        <div className="ml-3 mt-5 ">
+        <div className="ml-3 mt-5 overscroll-contain">
         {display}
         </div>
     )
